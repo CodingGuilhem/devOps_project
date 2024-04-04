@@ -1,31 +1,40 @@
 #include <string>
 #include <iostream>
+#include <fstream>
+#include "encoded_sequence.h"
 #include "seq.h"
 
 using namespace std;
-class Sequence {
-    private:
-        char* sequence;
-        int length;
 
-    public:
-        Sequence(){
-            sequence = NULL;
-            length = 0;
-        };
-
-        Sequence(char* sequence);
-        ~Sequence(){
-            if (sequence != NULL){
-                free(sequence);
-            }
-        };
-
-        void setSequence(char* sequence){
-            cout << "TODO" << endl;
-        };
-        char* getSequence();
-        int getLength();
-        void readFasta(char* filename);
-        void readFastq(char* filename);
+Sequence::Sequence(){
+    sequence = NULL;
+    length = 0;
 };
+
+Sequence::Sequence(char* seq){
+    sequence = new EncodedSequence(seq);
+    length = sequence->length();
+};
+Sequence::~Sequence(){
+    if (sequence != NULL){
+        sequence->~EncodedSequence();
+        length = 0;
+    }
+};
+
+void Sequence::setSequence(char* seq){
+    if (sequence != NULL){
+        sequence->~EncodedSequence();
+    }
+    sequence = new EncodedSequence(seq);
+    length = sequence->size();
+};
+string getSequence(){
+    return sequence->decode();
+};
+int getLength(){
+    return this->len();
+};
+
+
+

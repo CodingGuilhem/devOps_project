@@ -9,11 +9,12 @@ MSQ = @
 # Dependencies directory
 DEPDIR = .dep
 # Default project files
-P = read_seq
+P = seq test_seq
 
-# Files dependencies
+# Files sources
+seq_SRC = seq.cpp seq.h
 
-
+test_seq_SRC = test_seq.cpp seq.h
 
 
 

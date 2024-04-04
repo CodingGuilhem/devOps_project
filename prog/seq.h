@@ -1,13 +1,14 @@
-
+#ifndef __SEQ_H__
+#define __SEQ_H__
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "encoded_sequence.h"
 
 class Sequence {
     private:
-        EncodedSequence sequence;
+        EncodedSequence *sequence;
         size_t length;
-        string description;
         
     public:
         Sequence();
@@ -16,7 +17,6 @@ class Sequence {
         void setSequence(char* sequence);
         char* getSequence();
         size_t len();
-        void setDesc(char* desc);
         char* getDesc();
-        virtual void read(char* filename);
+        virtual void read_file(char* filename);
 };
