@@ -127,7 +127,7 @@ bool fromStream(istream &is,string *desc,string *seq) {
       }
     }
   }
-
+    
   return true;
 }
 

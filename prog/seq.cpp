@@ -65,6 +65,24 @@ string Sequence::getDesc(){
 size_t Sequence::len(){
     return sequence->length();
 };
+/*
+* Read a file
+*/
+void Sequence::read_file(string filename){
+    ifstream file;
+    file.open(filename.c_str());
+    if (file.is_open()){
+        string line;
+        string seq = "";
+        while (getline(file, line)){
+            if (line[0] != '>'){
+                seq += line;
+            }
+        }
+        setSequence(seq);
+    }
+    file.close();
+};
 
 
 

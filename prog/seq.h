@@ -7,6 +7,7 @@
 
 class Sequence {
     protected:
+    
         EncodedSequence *sequence;
         std::string description;
         
