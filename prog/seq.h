@@ -6,12 +6,12 @@
 class Sequence {
     private:
         EncodedSequence sequence;
-        size_t length;
-        string description;
+        std::string description;
         
     public:
         Sequence();
-        Sequence(char* sequence);
+        Sequence(EncodedSequence sequence);
+        Sequence(EncodedSequence sequence, std::string desc);
         ~Sequence();
         void setSequence(char* sequence);
         char* getSequence();
