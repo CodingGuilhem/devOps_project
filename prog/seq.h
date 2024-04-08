@@ -6,23 +6,20 @@
 #include "encoded_sequence.h"
 
 class Sequence {
-    private:
-<<<<<<< HEAD
-        EncodedSequence sequence;
-        std::string description;
-=======
+    protected:
         EncodedSequence *sequence;
-        size_t length;
->>>>>>> 3be23c3037831db0124ea475275a79967aeb6e59
+        std::string description;
         
     public:
         Sequence();
-        Sequence(EncodedSequence sequence);
-        Sequence(EncodedSequence sequence, std::string desc);
+        Sequence(string seq);
+        Sequence(string seq, std::string desc);
         ~Sequence();
-        void setSequence(char* sequence);
-        char* getSequence();
-        size_t len();
-        char* getDesc();
-        virtual void read_file(char* filename);
+        void setSequence(string seq);
+        string getSequence();
+        inline size_t len();
+        string getDesc();
+        virtual void read_file(string filename);
 };
+
+#endif

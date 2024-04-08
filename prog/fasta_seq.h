@@ -1,5 +1,8 @@
+#ifndef __FASTA_SEQ_H__
+#define __FASTA_SEQ_H__
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "seq.h"
 
 
@@ -9,9 +12,11 @@ class FastaSequence : public Sequence {
 
     public:
         FastaSequence();
-        FastaSequence(char* sequence);
-        FastaSequence(char* sequence, char* header);
-        void setHeader(char* header);
-        char* getHeader();
-        virtual void read(char* filename);
+        FastaSequence(std::string sequence);
+        FastaSequence(std::string sequence, std::string header);
+        void setHeader(std::string header);
+        std::string getHeader();
+        virtual void read_file(string filename);
 };
+
+#endif
