@@ -8,15 +8,16 @@
 
 class FastaSequence : public Sequence {
     private :
-        std::string header;
+        std::string comments;
+
 
     public:
         FastaSequence();
         FastaSequence(std::string sequence);
-        FastaSequence(std::string sequence, std::string header);
-        void setHeader(std::string header);
-        std::string getHeader();
-        virtual void read_file(string filename);
+        FastaSequence(std::string sequence, std::string description);
+        FastaSequence(std::string sequence, std::string description, std::string comments);
+        void setComments(std::string comments);
+        std::string getComments();
 };
 
 #endif

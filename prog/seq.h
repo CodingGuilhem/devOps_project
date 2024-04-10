@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <list>
 #include "encoded_sequence.h"
 
 class Sequence {
@@ -13,14 +14,14 @@ class Sequence {
         
     public:
         Sequence();
-        Sequence(string seq);
-        Sequence(string seq, std::string desc);
+        Sequence(std::string seq);
+        Sequence(std::string seq, std::string desc);
         ~Sequence();
-        void setSequence(string seq);
-        string getSequence();
+        void setSequence(std::string seq);
+        std::string getSequence();
         inline size_t len();
-        string getDesc();
-        virtual void read_file(string filename);
+        std::string getDescription();
+        void setDescription(std::string desc);
 };
 
 #endif

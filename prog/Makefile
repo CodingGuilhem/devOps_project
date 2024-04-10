@@ -1,28 +1,10 @@
-# Compiler
+.PHONY: all clean
+
+# Variables
 CXX = g++
-# Compilation options
-CXXFLAGS = -Wall -Wextra -ansi -pedantic -std=c++11
-# Linking options
-LDFLAGS =
-# Hide compilation commands
-MSQ = @
-# Dependencies directory
-DEPDIR = .dep
-# Default project files
-P = seq test_seq
-
-# Files sources
-seq_SRC = seq.cpp seq.h
-
-test_seq_SRC = test_seq.cpp seq.h
-
-
-
-# Clean	
-clean:
-	@echo "Cleaning the dependencies files"
-	$(MSQ)rm -f $(DEPDIR)
-	@echo "Cleaning the $(P) project"
-	$(MSQ)rm -f $(P) $(P:=.o) $(P:=.d)
-
+MSG = @
+CXXFLAGS = -Wall -Wextra -std=c++11
+LDFLAGS = 
+PROGS = test_sequence
+SRC = seq.cpp encoded_sequence.cpp test_seq.cpp
 
