@@ -1,4 +1,4 @@
 A améliorer :
-read_fasta : prendre en compte les commentaires 
-read fastq : prendre en compte les commentaires et la qualité
+read_fasta : prendre en compte les commentaires + que faires si sequence ou header vide 
+read fastq : prendre en compte les commentaires et la qualité + que faire si sequence ou header vide
 faire une classe generique read_file pour faciliter -> read_fasta + read_fastq

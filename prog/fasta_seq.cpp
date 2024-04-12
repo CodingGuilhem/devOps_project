@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include "fasta_seq.h"
-
+#include "seq.h"
 using namespace std;
 
 FastaSequence::FastaSequence(){
