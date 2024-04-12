@@ -1,12 +1,15 @@
-.PHONY: all clean
-
-# Variables
+# Compilator
 CXX = g++
-MSG = @
-CXXFLAGS = -Wall -Wextra -std=c++11
-LDFLAGS = 
-PROGS = test_sequence
-SRC = seq.cpp encoded_sequence.cpp test_seq.cpp
+# Flags
+CXXFLAGS = -Wall -Wextra -ansi -pedantic -std=c++11
+# Linker flags
+LDFLAGS =
+# Hide compilation commands
+MSQ = @
+# Dependencies directory
+DEPDIR = .dep
+# Programs to generate
+PROGS = test_seq
 
 # Targets
 all: $(PROGS)
