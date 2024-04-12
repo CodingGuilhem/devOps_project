@@ -2,6 +2,7 @@
 #include <iostream>
 using namespace std;
 
+#define silent 1
 
 static char _encode(char c) {
   if (c >= 97) {
@@ -37,7 +38,9 @@ static char _decode(char c) {
 }
 
 EncodedSequence::EncodedSequence(const char *c_str): _data(NULL), _size(0), _raw_capacity(0) {
-  cout << "Création de l'objet à l'adresse " << this << endl;
+  if (!silent) {
+    cout << "Création de l'objet à l'adresse " << this << endl;
+  }
   if (!c_str) return;
   while (*c_str != '\0') {
     ajouteNucleotide(*c_str);
@@ -46,15 +49,19 @@ EncodedSequence::EncodedSequence(const char *c_str): _data(NULL), _size(0), _raw
 }
 
 EncodedSequence::EncodedSequence(const string &s): _data(NULL), _size(0), _raw_capacity(0) {
-  cout << "Création de l'objet à l'adresse " << this << endl;
+  if (!silent) {
+    cout << "Création de l'objet à l'adresse " << this << endl;
+  }
   for (size_t i = 0; i < s.size(); ++i) {
     ajouteNucleotide(s[i]);
   }
 }
 
 EncodedSequence::EncodedSequence(const EncodedSequence &es): _data(NULL), _size(0), _raw_capacity(0) {
+ if(!silent){
  cout << "Création de l'objet à l'adresse " << this
       << " (par copie de celui à l'adresse " << &es << ")" << endl;
+  }
  resize(es.size());
  for (size_t i = 0; i < rawSize(); ++i) {
    _data[i] = es._data[i];
@@ -62,15 +69,19 @@ EncodedSequence::EncodedSequence(const EncodedSequence &es): _data(NULL), _size(
 }
 
 EncodedSequence::~EncodedSequence() {
+  if(!silent){
   cout << "Destruction de l'objet à l'adresse " << this << endl;
+  }
   if (_data) {
     delete [] _data;
   }
 }
 
 EncodedSequence &EncodedSequence::operator=(const EncodedSequence &es) {
+  if(!silent){
   cout << "Affectation du contenu de la séquence encodée à l'adresse " << &es
        << " dans la séquence encodée à l'adresse " << this << endl;
+  }
   if (&es != this) {
     clear();
     resize(es.size());

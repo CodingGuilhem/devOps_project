@@ -23,9 +23,6 @@ Sequence::Sequence(string seq){
 * Creator for the class Sequence
 */
 Sequence::Sequence(string seq, string desc){
-    if (sequence != NULL){
-        sequence->~EncodedSequence();
-    }
     sequence = new EncodedSequence(seq);
     description = desc;
 };
@@ -42,9 +39,6 @@ Sequence::~Sequence(){
 * Set the sequence
 */
 void Sequence::setSequence(string seq){
-    if (sequence != NULL){
-        sequence->~EncodedSequence();
-    }
     sequence = new EncodedSequence(seq);
     description = "";
 };
@@ -52,6 +46,7 @@ void Sequence::setSequence(string seq){
 * Get the sequence
 */
 string Sequence::getSequence(){
+    cout << "Sequence: " << sequence << endl;
     return sequence->decode();
 };
 /*

@@ -7,7 +7,7 @@ using namespace std;
 
 FastaSequence::FastaSequence(){
     this->setDescription("");
-    this->setSequence(NULL);
+    sequence = NULL;
     comments = "";
 };
 FastaSequence::FastaSequence(string seq){
@@ -19,6 +19,11 @@ FastaSequence::FastaSequence(string seq, string desc){
     this->setDescription(desc); ;
     this->setSequence(seq);
     comments= "";
+};
+FastaSequence::FastaSequence(std::string sequence, std::string description, std::string comments){
+    this->setDescription(description);
+    this->setSequence(sequence);
+    this->setComments(comments);
 };
 
 void FastaSequence::setComments(string comm){

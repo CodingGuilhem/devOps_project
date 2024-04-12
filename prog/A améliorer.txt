@@ -1,0 +1,4 @@
+A améliorer :
+read_fasta : prendre en compte les commentaires 
+read fastq : prendre en compte les commentaires et la qualité
+faire une classe generique read_file pour faciliter -> read_fasta + read_fastq

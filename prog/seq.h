@@ -6,6 +6,7 @@
 #include <list>
 #include "encoded_sequence.h"
 
+
 class Sequence {
     protected:
     

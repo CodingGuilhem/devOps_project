@@ -1,35 +1,26 @@
-# Compilator
+# Compilateur C++
 CXX = g++
-# Flags
-CXXFLAGS = -Wall -Wextra -ansi -pedantic -std=c++11
-# Linker flags
+# Options de compilation
+CXXFLAGS = -Wall -Wextra -std=c++11
+# Options pour l'édition des liens
 LDFLAGS =
-# Hide compilation commands
-MSQ = @
-# Dependencies directory
-DEPDIR = .dep
-# Programs to generate
-PROGS = test_seq
 
-# Targets
-all: $(PROGS)
+all : test_seq
 
-clean:
-	$(MSG) "Cleaning..."
-	$(MSG) $(RM) $(PROGS)
+test_seq : test_seq.cpp seq.o fasta_seq.o fastq_seq.o encoded_sequence.o
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
 
-# Compilation rules
-$(PROGS): $(SRC:.cpp=.o)
-	$(MSG) "Linking $@..."
-	$(MSG) $(CXX) $(CXXFLAGS) $(LDFLAGS) $^ -o $@
+seq.o : seq.cpp seq.h encoded_sequence.o 
+	$(CXX) $(CXXFLAGS) -c $<
 
-%.o: %.cpp
-	$(MSG) "Compiling $<..."
-	$(MSG) $(CXX) $(CXXFLAGS) -c $< -o $@
+fasta_seq.o : fasta_seq.cpp fasta_seq.h seq.o
+	$(CXX) $(CXXFLAGS) -c $<
 
-# Dependencies
-seq.o: seq.cpp seq.h encoded_sequence.h 
-encoded_sequence.o: encoded_sequence.cpp encoded_sequence.h seq.h
-fasta_seq.o: fasta_seq.cpp fasta_seq.h seq.h
-fastq_seq.o: fastq_seq.cpp fastq_seq.h seq.h
-test_seq.o: test_seq.cpp encoded_sequence.h fasta_seq.h fastq_seq.h seq.h
+fastq_seq.o : fastq_seq.cpp fastq_seq.h seq.o
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+encoded_sequence.o : encoded_sequence.cpp encoded_sequence.h
+	$(CXX) $(CXXFLAGS) -c $<
+
+clean :
+	rm -f *.o test_seq
