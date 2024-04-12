@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include "seq.h"
+#include "encoded_sequence.h"
 
 class FastqSequence : public Sequence {
     private :

@@ -4,6 +4,7 @@
 #include <fstream>
 #include <string>
 #include "seq.h"
+#include "encoded_sequence.h"
 
 
 class FastaSequence : public Sequence {

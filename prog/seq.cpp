@@ -26,6 +26,7 @@ Sequence::Sequence(string seq, string desc){
     if (sequence != NULL){
         sequence->~EncodedSequence();
     }
+    sequence = new EncodedSequence(seq);
     description = desc;
 };
 /*
