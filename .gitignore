@@ -1,1 +1,6 @@
-# TODO
+#Ignoring the .o files
+*.o
+#Ignoring the dependencies directory
+/prog/.dep
+#Ignoring the personal files
+"info devops.txt"
