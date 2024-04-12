@@ -2,3 +2,10 @@ A améliorer :
 read_fasta : prendre en compte les commentaires + que faires si sequence ou header vide 
 read fastq : prendre en compte les commentaires et la qualité + que faire si sequence ou header vide
 faire une classe generique read_file pour faciliter -> read_fasta + read_fastq
+fastq voir le TP2 
+welcome sanger instutite -> on fait un papier qui rescence les différentes pratiques
+pour le rapport voir le fichier sur projet/stage
+valgirnd : meusure la mémoir utilisé et les fuites mémoires -> massif-visualizer pour voir les piques de mémoires
+
+a faire :
+finir les lectures de séquences
